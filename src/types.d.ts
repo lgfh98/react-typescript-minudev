@@ -8,6 +8,11 @@ export type Sub = {
 export type ApiSub = Array<{
   nick: string;
   profileUrl: string;
-  month: number;
+  months: number;
   description?: string;
 }>;
+
+export type AppState = {
+  subs: Array<Sub>;
+  subsCounter: number;
+};

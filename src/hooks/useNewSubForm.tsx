@@ -28,7 +28,7 @@ const formReducer = (
       const { inputName, inputValue } = action.payload;
       return {
         ...state,
-        [inputName]: [inputValue],
+        [inputName]: inputValue,
       };
 
     case "clear":
@@ -37,7 +37,21 @@ const formReducer = (
 };
 
 const useNewSubReducer = () => {
-  return useReducer(formReducer, INITIAL_STATE);
+  const [formValues, dispatch] = useReducer(formReducer, INITIAL_STATE);
+  const clearForm = () => dispatch({ type: "clear" });
+  const changeValueEvent = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    dispatch({
+      type: "change_value",
+      payload: {
+        inputName: name,
+        inputValue: value,
+      },
+    });
+  };
+  return { formValues, clearForm, changeValueEvent };
 };
 
 export default useNewSubReducer;

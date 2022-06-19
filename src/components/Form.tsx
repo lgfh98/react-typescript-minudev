@@ -6,25 +6,18 @@ type Props = {
 };
 
 const Form = ({ onNewSub }: Props) => {
-  const [formValues, dispatch] = useNewSubReducer();
+  const { formValues, clearForm, changeValueEvent } = useNewSubReducer();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onNewSub(formValues);
-    dispatch({ type: "clear" });
+    clearForm();
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: "change_value",
-      payload: {
-        inputName: name,
-        inputValue: value,
-      },
-    });
+    changeValueEvent(e);
   };
 
   return (
@@ -63,7 +56,7 @@ const Form = ({ onNewSub }: Props) => {
         />
         <button
           onClick={() => {
-            dispatch({ type: "clear" });
+            clearForm();
           }}
           type="button"
         >

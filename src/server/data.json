@@ -3,12 +3,12 @@
     {
       "nick": "Luis",
       "subMonths": 2,
-      "avatar": "https://i.pravatar.cc/150?u=Luis"
+      "profileUrl": "https://i.pravatar.cc/150?u=Luis"
     },
     {
       "nick": "Camilo",
       "subMonths": 5,
-      "avatar": "https://i.pravatar.cc/150?u=Camilo",
+      "profileUrl": "https://i.pravatar.cc/150?u=Camilo",
       "description": "Camilo es el mas concurrente y divertido, estoy llenando esto con caracteres para probar un visaje. Lo que le dije sotcio"
     }
   ]
