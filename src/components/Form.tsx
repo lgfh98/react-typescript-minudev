@@ -6,8 +6,6 @@ type Props = {
 };
 
 const Form = ({ onNewSub }: Props) => {
-  // const [formValues, setFormValues] =
-  //   useState<FormState["formValues"]>(INITIAL_STATE);
   const [formValues, dispatch] = useNewSubReducer();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,15 +25,7 @@ const Form = ({ onNewSub }: Props) => {
         inputValue: value,
       },
     });
-    // setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
-
-  // const handleClear = () => {
-  //   // setFormValues(INITIAL_STATE);
-  //   dispatch({
-  //     type: "clear",
-  //   });
-  // };
 
   return (
     <>
